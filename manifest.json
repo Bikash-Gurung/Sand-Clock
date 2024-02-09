@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Sand-Clock",
+  "description": "Keeps log of sites that user visited",
+  "version": "0.0.1",
+  "author": "vikashtamu99@gmail.com",
+  "action": {
+    "default_popup": "./popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./script/contentscript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "./script/serviceworker.js"
+  },
+  "permissions": ["tabs", "activeTab", "storage"]
+}
